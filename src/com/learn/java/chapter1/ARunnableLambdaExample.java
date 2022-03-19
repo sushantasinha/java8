@@ -1,6 +1,6 @@
-package com.learn.java;
+package com.learn.java.chapter1;
 
-public class RunnableLambdaExample {
+public class ARunnableLambdaExample {
 
     public static void main(String[] args) {
 
@@ -20,6 +20,8 @@ public class RunnableLambdaExample {
 
         //new Approach 2
         new Thread(() -> System.out.println("I am in new approach 2")).start();
+
+
 
     }
 }
