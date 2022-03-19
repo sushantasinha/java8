@@ -1,10 +1,6 @@
-package com.learn.java.chapter2;
-
-import com.learn.java.common.Student;
-import com.learn.java.common.StudentDataBase;
+package com.learn.java.chapter2And3;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class AMethodRefExample {
 

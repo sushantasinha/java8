@@ -1,4 +1,4 @@
-package com.learn.java.chapter2;
+package com.learn.java.chapter2And3;
 
 import com.learn.java.common.Student;
 

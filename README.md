@@ -96,6 +96,12 @@ Supplier<Student> studentSupplier = Student::new;
 Student student = Student::new; // conpilation error
 
 
+Lambda Variables:
+
+![alt text](./1.PNG)
+![Title](./1.PNG)
+
+
 
 
 
