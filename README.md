@@ -143,6 +143,56 @@ public void localVariableMultithreading() {
 While this looks innocent, it has the insidious problem of “visibility”. Recall that each thread gets its own stack, and so how do we ensure that our while loop sees the change to the run variable in the other stack? The answer in other contexts could be using synchronized blocks or the volatile keyword.
 
 
+stream(), parallelStream()
+
+![Lambda Variables](./1.PNG)
+
+If collect() not there, none of the operations will be executed in stream() i.e. lazy appoeoach (i.e. until the terminal operation which is collect() is not invoked, nothing will be kicked off)
+
+We can travers the stream only once:
+```
+Stream<String> namesStream = names.stream();
+namesStream.forEach(System.out::println);
+namesStream.forEach(System.out::println);
+```
+
+Above will give error -> stream has already been closed.
+
+How to debug Lambda: Using peek()
+
+```
+list1.stream().filter(1st filter).filter(2nd filter).collect(Collector.toList) -> for every element from list1, it will first apply 1st filter, then apply 2nd filter, then do the same for next element.
+```
+![Stream](./2.PNG)
+
+map()
+flatmap()
+distinct()
+count()
+sorted(): natural sort
+Sort with comparator: .sorted(Comparator.comparing(Student::getName))
+filter()
+reduce(): terminal operation as line collect(). Used to reduce the amt of contents of a stream to a single value.
+2 params: 1st: initial val, 2nd is BinaryOperator<T>
+limit()
+skip(): skips the "n" number of elements from the stream
+
+
+allMatch(): 
+anyMatch()
+noneMatch()
+![Lambda Variables](./3.PNG)
+
+findFirst(): Returns first element in the stream
+findAny(): Returns the first encountered element in the stream
+
+Stream short-circuiting operations:
+like if(a && b) -> if a is false, b will not be evaluated. This is called short-circuiting 
+Below are the methods does not iterate whole stream() to get you the result:
+limit(), findFirst(), findAny(), anyMatch(), allMatch(), noneMatch()
+
+
+
 
 
 
