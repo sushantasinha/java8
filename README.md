@@ -61,6 +61,50 @@ public interface Supplier<T> {
     T get();
 }
 
+Functional Interface:
+Shortcut of writing Lambda extressions
+
+ClassName::instance-methodName
+ClassName::static-methodName
+ClassName::methodName
+
+Lambda expressions referring to a method directly.
+
+Using Lambda:
+Function<String, String> l = s -> s.toUpperCase();
+It can rewrite as:
+Function<String, String> l = String::toUpperCase;
+
+
+Where methid ref can not used:
+Where we wrote our own logic. Like,
+
+Predicate<Student> predicate = s -> s.getGeadeLevel() >= 3;
+
+If we want to use methd ref here, is possible... if we put move that entire logic under a method...
+
+```
+private static boolean m1(Student p) {
+        return p.getGradeLevel() >= 3;
+}
+
+Predicate<Student> predicate1 = EPredicateExample::m1;
+```
+
+Constructor Reference: This needs to have empty constructor
+Supplier<Student> studentSupplier = Student::new;
+Student student = Student::new; // conpilation error
+
+
+
+
+
+
+
+
+
+
+
 
 
 
