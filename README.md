@@ -217,7 +217,23 @@ mapToObj() -> convert each element numeric stream to some Object
 mapToLong(), 
 mapToDouble()
 
- 
+Terminal Operations:
+collect(), forEach(), min(), max(), reduce() etc
+joining(): Collectors perform String concatination. It has 3 overloaded versions.
+counting()
+mapping()
+minBy()
+maxBy()
+summingInt()
+averagingInt()
+groupBy()
+
+collectingAndThen()
+PartitioningBy(): also kind of groupBy()
+
+
+
+
 
 
 
