@@ -1,14 +1,7 @@
-package com.learn.java.chapter4;
-
-import com.learn.java.common.Student;
-import com.learn.java.common.StudentDataBase;
+package com.learn.java.chapter4And5;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
-
-import static com.learn.java.common.Common.printDivider;
 
 public class GLimitAndSkipExample {
 

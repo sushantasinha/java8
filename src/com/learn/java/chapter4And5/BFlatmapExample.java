@@ -1,11 +1,9 @@
-package com.learn.java.chapter4;
+package com.learn.java.chapter4And5;
 
 import com.learn.java.common.Student;
 import com.learn.java.common.StudentDataBase;
 
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.learn.java.common.Common.printDivider;

@@ -191,7 +191,16 @@ like if(a && b) -> if a is false, b will not be evaluated. This is called short-
 Below are the methods does not iterate whole stream() to get you the result:
 limit(), findFirst(), findAny(), anyMatch(), allMatch(), noneMatch()
 
+of(), generate(), iterate(): (These are factory methods)
 
+of(): Creates a stream of certain values pased to this method.
+Eg: Stream<String> s = Stream.of("cc", "zz", "ll");
+
+iterate(), generate(): Used to create infinite Streams.
+Eg, 
+Stream.iterate(1, x-> x*2)
+Stream.generate(<Supplier>)
+ 
 
 
 
