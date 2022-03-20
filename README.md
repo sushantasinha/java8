@@ -200,7 +200,25 @@ iterate(), generate(): Used to create infinite Streams.
 Eg, 
 Stream.iterate(1, x-> x*2)
 Stream.generate(<Supplier>)
+
+Numeric Streams:
+IntStream()
+LongStream()
+DoubleStream()
+
+IntStream.range(1, 50): 1 to 49 it will consider
+IntStream.rangeClosed(1, 50): 1 to 50 it will consider
+
+Similar LongStream... DoubleStream does not support range() and rangeClosed(), but there is a wayout
+IntStream.range(1, 50).asDoubleStream().forEach(v -> sout(...));
+
+IntStream: sum(), max(), min(), average(), boxing(), unboxing/mapToInt()
+mapToObj() -> convert each element numeric stream to some Object
+mapToLong(), 
+mapToDouble()
+
  
+
 
 
 
