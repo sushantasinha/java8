@@ -231,6 +231,25 @@ groupBy()
 collectingAndThen()
 PartitioningBy(): also kind of groupBy()
 
+Parallel Stream:
+```
+IntStream.rangeClosed(1, 1000).parallel().sum();
+```
+
+How Parallel stream works?
+Parallel stream uses the Fork/Join Framework that fot introduced in Java 7. Fork join created multiple threads for is. 
+
+But how many threads it created?
+Number of threads created = Number of processors available in the system
+
+When NOT to use parallelStreams():
+
+Not always parallelStream() performs better. Sometime stream() performs better than parallelStream(), so check performance first before using parallelStream()
+If we have any mutable variable then do not use parallel stream, else will get incorrect result
+
+
+
+
 
 
 
