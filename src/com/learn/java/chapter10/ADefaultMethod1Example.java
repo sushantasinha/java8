@@ -3,7 +3,7 @@ package com.learn.java.chapter10;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class DefaultMethod1Example {
+public class ADefaultMethod1Example {
 
     public static void main(String[] args) {
 

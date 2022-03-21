@@ -278,6 +278,26 @@ Optional.filter()
 Default method in interface.
 Static method in interface: Similar like default method, but the difference is, static method is not allowed to override in implementation classes.
 
+
+Static method in Interface:
+```
+static boolean m1(String s) {
+    //implementation
+}
+```
+
+I1 (Interface) -> implemented by C1 (Class)... 
+I1 has a default methos (D1()) and static method (S1()) 
+Now in main class if we try to access D1() and S1():
+
+I1 i = new C1();
+i.D1(): will work
+i.S1(): will not work... it needs, I1.S1() 
+
+Above is common rule for any static method, we dont call them through instance
+
+
+
 Comparator chaining: 
 
 ```
@@ -298,10 +318,18 @@ Comparator<Student> nullsFirstComparator = Comparator.nullsFirst(nameComparator)
 
 
 
+Abstract Class vs Interfaces:
 
+1. Instance variable not allowed in interfaces but class level variable is possible
+2. Class can extend only 1 class but can implement multiple interfaces
 
+Now Java enable multiple inheritance in Java 8 i.e.:
 
-
+class ImplClass implements Interface1, Interface2, Interface3{} 
+This was possible earlier and now as well
+But the difference is, earlier, if the same method was there in 2 interfaces, will work (See EDefaultMethod5Example.jave)
+Now, we have default method... in that way above (class ImplClass implements Interface1, Interface2, Interface3{} ), will still work,
+if there is NO method name common... in this way, earlier, we were unable to extend multiple classes (althugh multiple interface impl. was possible).. now the same is applied but now as we have default method in interface, so actually it work like extend a class
 
 
 

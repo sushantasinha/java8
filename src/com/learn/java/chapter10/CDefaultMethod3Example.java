@@ -8,7 +8,7 @@ import java.util.List;
 
 import static com.learn.java.common.Common.printDivider;
 
-public class DefaultMethod3Example {
+public class CDefaultMethod3Example {
 
     public static void main(String[] args) {
 

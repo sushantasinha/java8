@@ -10,7 +10,7 @@ import java.util.List;
 
 import static com.learn.java.common.Common.printDivider;
 
-public class DefaultMethod2Example {
+public class BDefaultMethod2Example {
 
     public static void main(String[] args) {
         //Comparator chaining
