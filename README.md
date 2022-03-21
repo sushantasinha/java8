@@ -275,6 +275,25 @@ Optional.map()
 Optional.flatmap(): used to get an Optional object inside an Optional object.
 Optional.filter()
 
+Default method in interface.
+Static method in interface: Similar like default method, but the difference is, static method is not allowed to override in implementation classes.
+
+Comparator chaining: 
+
+```
+Comparator<Student> nameComparator = Comparator.comparing(Student::getName);
+        Comparator<Student> gradeComparator = Comparator.comparing(Student::getGradeLevel);
+        List<Student> students = StudentDataBase.getAllStudents();
+        students.sort(gradeComparator.thenComparing(nameComparator));
+        System.out.println(students);
+```
+
+nullsFirst(): put the null at the first of the list while sorting.
+nullsLast(): put the null at the last of the list while sorting.
+```
+Comparator<Student> nameComparator = Comparator.comparing(Student::getName);
+Comparator<Student> nullsFirstComparator = Comparator.nullsFirst(nameComparator);
+```
 
 
 
