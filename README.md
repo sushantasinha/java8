@@ -245,7 +245,48 @@ Number of threads created = Number of processors available in the system
 When NOT to use parallelStreams():
 
 Not always parallelStream() performs better. Sometime stream() performs better than parallelStream(), so check performance first before using parallelStream()
-If we have any mutable variable then do not use parallel stream, else will get incorrect result
+If we have any mutable variable then do not use parallel stream, else will get incorrect result.
+
+Optional:
+Optional.empty() -> Represents an optional obj with no value
+Optional.get()
+Optional.ofNullable() vs Optional.of()
+
+```
+public static <T> Optional<T> ofNullable(T value) {
+        return value == null ? empty() : of(value);//empty() is Optional.empty
+}
+
+
+public static <T> Optional<T> of(T value) {
+        return new Optional<>(value);
+    }
+```
+
+That means if the Optional.of(<some value>), if we are NOT certain that <some value> would be not null always, should use ofNullable, else can use of()
+If we pass valid String, then ofNullable() and of() both behaves same.
+
+Optional.orElse()
+Optional.orElseGet()
+Optional.orElseThrow()
+Optional.ifPresent()
+Optional.isPresent()
+Optional.map()
+Optional.flatmap(): used to get an Optional object inside an Optional object.
+Optional.filter()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

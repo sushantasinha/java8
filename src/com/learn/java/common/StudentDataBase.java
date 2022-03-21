@@ -2,8 +2,19 @@ package com.learn.java.common;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 public class StudentDataBase {
+
+    public static Supplier<Student> studentSupplier = () -> {
+        Bike b = new Bike();
+        b.setName("Bike Name1");
+        b.setModel("Bike Model 123");
+        Student s = new Student("Adam",2,3.6, "male",Arrays.asList("swimming", "basketball","volleyball"));
+        s.setBike(Optional.ofNullable(b));
+        return s;
+    };
 
     /**
      * Total of 6 students in the database.
