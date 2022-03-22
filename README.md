@@ -333,7 +333,13 @@ if there is NO method name common... in this way, earlier, we were unable to ext
 
 
 
+Java 8 Date/Time:
+LocalDate, LocalTime, LocalDateTime... 
+These are immutable 
 
+LocalDateTime.now() //Local datetime of machine
+
+TemporalAdjusters has lot of handy method
 
 
 
