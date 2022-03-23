@@ -63,9 +63,6 @@ public class ADateTime1Example {
         LocalDate ld = ldt.toLocalDate();
         LocalTime lt = ldt.toLocalTime();
 
-
-
-
     }
 }
 

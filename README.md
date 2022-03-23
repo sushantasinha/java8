@@ -341,6 +341,25 @@ LocalDateTime.now() //Local datetime of machine
 
 TemporalAdjusters has lot of handy method
 
+Period: Period is a date based representation of time in Days, Months and Years. Compatible with LocalDate. 
+
+Period p = Period.ofDays(10); // Represents a period of 10 days
+Period p = Period.ofYears(10); // Represents a period of 10 years
+
+Mose common usecase of period is, to calculate the difference between 2 dates.
+
+Duration: Duration is a time based representation of time in Hrs, mins, seconds, nanoseconds. Compatible with LocalDate. 
+
+Date related comparison -> use Period
+Time (Hr, min, sec etc) related comparison -> use Duration
+
+Instant: Represent time in machine readable formant
+
+ZoneDateTime, ZoneId, ZoneOffset: 
+
+ZoneDateTime: Represents the date/time with its time zone, its associated with zone offset and zone id
+ZoneOffset: -5:00 () Offset time from UTC time
+ZOne id: unique id of zone
 
 
 
