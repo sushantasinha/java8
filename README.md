@@ -362,6 +362,13 @@ ZoneOffset: -5:00 () Offset time from UTC time
 ZOne id: unique id of zone
 
 
+DateTimeFormatter:
+parse: converting String to LocalDate/LocalTime/LocalDateTime
+format: LocalDate/LocalTime/LocalDateTime to String
+
+https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.htm
+Check above link if the format i am looking for is already avl, if so we can reuse that
+
 
 
 
