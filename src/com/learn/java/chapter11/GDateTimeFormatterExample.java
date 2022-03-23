@@ -34,10 +34,6 @@ public class GDateTimeFormatterExample {
         // =========== LocalDateTime =======================
         //Similar like LocalDate
 
-
-
-
-
     }
 }
 
