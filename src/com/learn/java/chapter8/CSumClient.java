@@ -13,7 +13,8 @@ public class CSumClient {
 
         Sum sum2 = new Sum();
         IntStream.rangeClosed(1, 100000).parallel().forEach(sum2::performSum);
-        System.out.println(sum2.getTotal()); // VARIABLE RESPONSE EVERY time, as "total" in Sum is instance variable and multiple threads are trying to access the same, some additions are overridden, so incorrect response
+        System.out.println(sum2.getTotal()); // VARIABLE RESPONSE EVERY time,
+        // as "total" in Sum is instance variable and multiple threads are trying to access the same, some additions are overridden, so incorrect response
     }
 
 

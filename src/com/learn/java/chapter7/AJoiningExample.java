@@ -36,7 +36,8 @@ public class AJoiningExample {
 
 
         printDivider();
-        System.out.println(StudentDataBase.getAllStudents().stream().collect(Collectors.mapping(Student::getName, Collectors.toList())));//map is preferred approach, this is done just for PoC
+        System.out.println(StudentDataBase.getAllStudents().stream()
+                .collect(Collectors.mapping(Student::getName, Collectors.toList())));//map is preferred approach, this is done just for PoC
 
         printDivider();
         System.out.println(StudentDataBase.getAllStudents().stream().map(Student::getName).collect(Collectors.toList()));

@@ -123,7 +123,14 @@ Lambda Variables:
 
 effectively final: Helps to do build concurrency application
 
+Instance variable we can modify inside lambda but not local variable (local variable inside method NOT inside lambda).
+Any local variable declared within lambda, will work
 
+
+
+```
+Consumer<Student> c1 = student -> System.out.println(student);//Based on the type of generics, it will define the type of "student"
+```
 
 
 
@@ -222,18 +229,18 @@ mapToLong(),
 mapToDouble()  
   
 Terminal Operations:
-collect(), forEach(), min(), max(), reduce() etc
-joining(): Collectors perform String concatination. It has 3 overloaded versions.
-counting()
-mapping()
-minBy()
-maxBy()
-summingInt()
-averagingInt()
-groupBy()
+collect(), forEach(), min(), max(), reduce() etc  
+joining(): Collectors perform String concatenation. It has 3 overloaded versions.  
+counting()  
+mapping()  
+minBy()  
+maxBy()  
+summingInt()  
+averagingInt()  
+groupBy()  
 
-collectingAndThen()
-PartitioningBy(): also kind of groupBy()
+collectingAndThen()  
+PartitioningBy(): also kind of groupBy()    
 
 Parallel Stream:
 ```
@@ -306,12 +313,33 @@ i.S1(): will not work... it needs, I1.S1()
 
 Above is common rule for any static method, we dont call them through instance
 
+```
+package com.learn.java.chapter7;
+
+public class Tmp {
+
+    static void s1() {
+        System.out.println("in s1");
+    }
+
+
+    public static void main(String[] args) {
+        Tmp tmp = new Tmp();
+
+        //Will not work
+        //tmp.s1();
+
+        s1();
+    }
+}
+
+```
 
 
 Comparator chaining: 
 
 ```
-Comparator<Student> nameComparator = Comparator.comparing(Student::getName);
+        Comparator<Student> nameComparator = Comparator.comparing(Student::getName);
         Comparator<Student> gradeComparator = Comparator.comparing(Student::getGradeLevel);
         List<Student> students = StudentDataBase.getAllStudents();
         students.sort(gradeComparator.thenComparing(nameComparator));
@@ -334,12 +362,7 @@ Abstract Class vs Interfaces:
 2. Class can extend only 1 class but can implement multiple interfaces
 
 Now Java enable multiple inheritance in Java 8 i.e.:
-
-class ImplClass implements Interface1, Interface2, Interface3{} 
-This was possible earlier and now as well
-But the difference is, earlier, if the same method was there in 2 interfaces, will work (See EDefaultMethod5Example.jave)
-Now, we have default method... in that way above (class ImplClass implements Interface1, Interface2, Interface3{} ), will still work,
-if there is NO method name common... in this way, earlier, we were unable to extend multiple classes (althugh multiple interface impl. was possible).. now the same is applied but now as we have default method in interface, so actually it work like extend a class
+https://www.javainterviewpoint.com/multiple-inheritance-java-8/
 
 
 
@@ -349,7 +372,7 @@ These are immutable
 
 LocalDateTime.now() //Local datetime of machine
 
-TemporalAdjusters has lot of handy method
+TemporalAdjusters has lots of handy method
 
 Period: Period is a date based representation of time in Days, Months and Years. Compatible with LocalDate. 
 

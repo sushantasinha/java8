@@ -22,6 +22,7 @@ public class ANumericStreamExample {
 
         //Better Approach
         System.out.println(IntStream.rangeClosed(1, 7).sum());//Does not do unboxing
+        printDivider();
 
         //when we operate with number,  should use numeric streams (like, IntStream), thn regular stream()
 
