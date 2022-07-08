@@ -10,16 +10,18 @@ Lambda is mainly used to implement Functioanl Interfaces (SAM). Functioanl Inter
 
 New Functioanl Interfaces introduces in Java 8:
 
-COnsumer
-Predicate
-Function 
-Supplier
+COnsumer  
+Predicate  
+Function   
+Supplier  
 
 
 Consumer:
 Consumer has one method called "accept" [java.util.function]
 It accept an input and perform some operation on that: void accept(T t);
 Except the "accept" method which needs to be implemented, there are few default methods as well like andThen() etc.
+
+So functional interface can have multple default methods, except the method tobe implemented  
 
 BiConsumer: It accepts 2 inputs
 
@@ -73,11 +75,11 @@ public interface Supplier<T> {
 ```
 
 Functional Interface:
-Shortcut of writing Lambda extressions
+Shortcut of writing Lambda expressions
 
-ClassName::instance-methodName
-ClassName::static-methodName
-ClassName::methodName
+ClassName::instance-methodName  
+ClassName::static-methodName  
+ClassName::methodName  
 
 Lambda expressions referring to a method directly.
 
@@ -145,8 +147,6 @@ While this looks innocent, it has the insidious problem of “visibility”. Rec
 
 stream(), parallelStream()
 
-![Lambda Variables](./1.PNG)
-
 If collect() not there, none of the operations will be executed in stream() i.e. lazy appoeoach (i.e. until the terminal operation which is collect() is not invoked, nothing will be kicked off)
 
 We can travers the stream only once:
@@ -161,62 +161,66 @@ Above will give error -> stream has already been closed.
 How to debug Lambda: Using peek()
 
 ```
-list1.stream().filter(1st filter).filter(2nd filter).collect(Collector.toList) -> for every element from list1, it will first apply 1st filter, then apply 2nd filter, then do the same for next element.
+list1.stream()
+    .filter(1st filter)
+    .filter(2nd filter)
+    .collect(Collector.toList) 
+-> for every element from list1, it will first apply 1st filter, then apply 2nd filter, then do the same for next element.
 ```
 ![Stream](./2.PNG)
 
-map()
-flatmap()
-distinct()
-count()
-sorted(): natural sort
-Sort with comparator: .sorted(Comparator.comparing(Student::getName))
-filter()
-reduce(): terminal operation as line collect(). Used to reduce the amt of contents of a stream to a single value.
-2 params: 1st: initial val, 2nd is BinaryOperator<T>
-limit()
-skip(): skips the "n" number of elements from the stream
+map()  
+flatmap()  
+distinct()  
+count()  
+sorted(): natural sort  
+Sort with comparator: .sorted(Comparator.comparing(Student::getName))  
+filter()  
+reduce(): terminal operation as line collect(). Used to reduce the amt of contents of a stream to a single value.  
+2 params: 1st: initial val, 2nd is BinaryOperator<T>  
+limit()  
+skip(): skips the "n" number of elements from the stream  
 
 
-allMatch(): 
-anyMatch()
-noneMatch()
+allMatch():   
+anyMatch()  
+noneMatch()  
 ![Lambda Variables](./3.PNG)
 
-findFirst(): Returns first element in the stream
-findAny(): Returns the first encountered element in the stream
+findFirst(): Returns first element in the stream  
+findAny(): Returns the first encountered element in the stream  
 
-Stream short-circuiting operations:
-like if(a && b) -> if a is false, b will not be evaluated. This is called short-circuiting 
-Below are the methods does not iterate whole stream() to get you the result:
-limit(), findFirst(), findAny(), anyMatch(), allMatch(), noneMatch()
+Stream short-circuiting operations:  
+like if(a && b) -> if a is false, b will not be evaluated. This is called short-circuiting   
+Below are the methods does not iterate whole stream() to get you the result:  
+limit(), findFirst(), findAny(), anyMatch(), allMatch(), noneMatch()  
 
-of(), generate(), iterate(): (These are factory methods)
+of(), generate(), iterate(): (These are factory methods)  
 
-of(): Creates a stream of certain values pased to this method.
-Eg: Stream<String> s = Stream.of("cc", "zz", "ll");
+of(): Creates a stream of certain values pased to this method.  
+Eg: Stream<String> s = Stream.of("cc", "zz", "ll");  
 
-iterate(), generate(): Used to create infinite Streams.
-Eg, 
-Stream.iterate(1, x-> x*2)
-Stream.generate(<Supplier>)
+iterate(), generate(): Used to create infinite Streams.  
+Eg,   
+Stream.iterate(1, x-> x*2)  
+Stream.generate(<Supplier>)  
 
-Numeric Streams:
-IntStream()
-LongStream()
-DoubleStream()
+Numeric Streams:  
+IntStream()  
+LongStream()  
+DoubleStream()  
 
-IntStream.range(1, 50): 1 to 49 it will consider
-IntStream.rangeClosed(1, 50): 1 to 50 it will consider
+IntStream.range(1, 50): 1 to 49 it will consider  
+IntStream.rangeClosed(1, 50): 1 to 50 it will consider  
 
-Similar LongStream... DoubleStream does not support range() and rangeClosed(), but there is a wayout
-IntStream.range(1, 50).asDoubleStream().forEach(v -> sout(...));
+Similar LongStream... DoubleStream does not support range() and rangeClosed(), but there is a wayout  
+IntStream.range(1, 50).asDoubleStream().forEach(v -> sout(...));  
 
-IntStream: sum(), max(), min(), average(), boxing(), unboxing/mapToInt()
-mapToObj() -> convert each element numeric stream to some Object
-mapToLong(), 
-mapToDouble()
-
+IntStream: sum(), max(), min(), average(), boxing(), unboxing/mapToInt()  
+mapToObj() -> convert each element numeric stream to some Object  
+mapToLong(),   
+mapToDouble()  
+  
 Terminal Operations:
 collect(), forEach(), min(), max(), reduce() etc
 joining(): Collectors perform String concatination. It has 3 overloaded versions.
@@ -265,6 +269,12 @@ public static <T> Optional<T> of(T value) {
 
 That means if the Optional.of(<some value>), if we are NOT certain that <some value> would be not null always, should use ofNullable, else can use of()
 If we pass valid String, then ofNullable() and of() both behaves same.
+
+
+If you expect that your <some value> is never null due to the program logic, it's much better to use Optional.of(foobar) as you will see a 
+NullPointerException which will indicate that your program has a bug. If you use Optional.ofNullable(foobar) and the foobar happens to be null due to the 
+bug, then your program will silently continue working incorrectly, which may be a bigger disaster. 
+
 
 Optional.orElse()
 Optional.orElseGet()
