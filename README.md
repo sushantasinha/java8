@@ -274,11 +274,11 @@ public static <T> Optional<T> of(T value) {
     }
 ```
 
-That means if the Optional.of(<some value>), if we are NOT certain that <some value> would be not null always, should use ofNullable, else can use of()
+That means if the Optional.of(some value), if we are NOT certain that "some value" would be not null always, should use ofNullable, else can use of()
 If we pass valid String, then ofNullable() and of() both behaves same.
 
 
-If you expect that your <some value> is never null due to the program logic, it's much better to use Optional.of(foobar) as you will see a 
+If you expect that your "some value" is never null due to the program logic, it's much better to use Optional.of(foobar) as you will see a 
 NullPointerException which will indicate that your program has a bug. If you use Optional.ofNullable(foobar) and the foobar happens to be null due to the 
 bug, then your program will silently continue working incorrectly, which may be a bigger disaster. 
 
