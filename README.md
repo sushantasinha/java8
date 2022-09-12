@@ -247,6 +247,20 @@ Parallel Stream:
 IntStream.rangeClosed(1, 1000).parallel().sum();
 ```
 
+https://stackoverflow.com/questions/26752919/stream-of-maps-to-map
+
+```
+Map<String, Column> original = new HashMap<>();
+    original.put("foo", new Column());
+    original.put("bar", new Column());
+
+    Map<String, Column> copy = original.entrySet()
+        .stream()
+        .collect(Collectors.toMap(Map.Entry::getKey,
+                                  e -> new Column(e.getValue())));
+```
+
+
 How Parallel stream works?
 Parallel stream uses the Fork/Join Framework that fot introduced in Java 7. Fork join created multiple threads for is. 
 

@@ -6,8 +6,6 @@ import com.learn.java.common.StudentDataBase;
 
 import java.util.Optional;
 
-import static com.learn.java.common.Common.printDivider;
-
 public class Optional4Example {
 
     public static void main(String[] args) {
@@ -22,8 +20,8 @@ public class Optional4Example {
         System.out.println(r1.get());
 
         Optional<String> name = optionalStudent
-                .filter(p -> p.getGpa()>2) //Optional<Student<Optional<Bike>>>
-                .flatMap(Student::getBike)  //Optional<Bike>
+                .filter(p -> p.getGpa()>2) //Optional<Student>
+                .flatMap(Student::getBike)  //Optional<Bike> //if use map() will get Optional<Optional<Bike>>
                 .map(Bike::getName); //Please note w are putting getName() i.e. get bike name on (Optional<Bike>) not on Bike obj, and this is okay
         name.ifPresent(System.out::println);
 
